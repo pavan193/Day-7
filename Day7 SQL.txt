@@ -1,0 +1,32 @@
+create table emp(empname varchar(15),salary int);
+insert into emp(empname,salary) values('pavan',10000);
+insert into emp(empname,salary) values('pranith',20000);
+insert into emp(empname,salary) values('surya',30000);
+insert into emp(empname,salary) values('Empty',40000);
+Select * from emp;
+select max(salary) as salary from emp where salary<(select max(salary) from emp);
+
+select top 1 salary from (select distinct top 3 salary from emp order by salary desc)result order by salary;
+
+QUESTION 1
+create table sales(salesman_id int,name varchar(20),city varchar(20),commission decimal(1,2));
+insert into sales(salesman_id,name,city) values (5001,'james hoog','new york');
+insert into sales(salesman_id,name,city) values (5002,'nail Knite','paris');
+insert into sales(salesman_id,name,city) values (5005,'pit alex','london');
+insert into sales(salesman_id,name,city) values (5006,'mc lyon','paris');
+insert into sales(salesman_id,name,city) values (5007,'paul adam','rome');
+
+select * from sales;
+
+select name,city from sales where city='paris';
+
+QUESTION 2
+create table noble(year int,subject varchar(20),winner varchar(30),country varchar(30),category varchar(30));
+insert into noble(year,subject,winner,country,category) values(1970,'physics','Hannes','sweden','scientist');
+insert into noble(year,subject,winner,country,category) values(1970,'chemistry','louis','france','scientist');
+insert into noble(year,subject,winner,country,category) values(1970,'chemistry','luis','france','linguist');
+insert into noble(year,subject,winner,country,category) values(1970,'physilogy','ulf von','germany','scientist');
+select * from noble;
+
+select year,subject,winner,country from noble where subject='chemistry' and year between 1965 and 1975;
+
